@@ -1,57 +1,57 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/batson.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>Semantic HTML</h1>
-					<p>Meaningful Markup for Accessibility</p>
-				</section>
-				<section>
-					<p>Why is it so important and who is it for?<p>
-					<p class="fragment">Any conumer of HTML</p>
-					<p class="fragment">For our <strong>B.U.D.S.</strong></p>
-					<ul>
-						<li class="fragment">Browsers</li>
-						<li class="fragment">Users</li>
-						<li class="fragment">Developers</li>
-						<li class="fragment">Screen Readers</li>
-						<li class="fragment">Spiders/Scrapers</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Browser Benefits</h2>
-					<p>Better keyboard access, default focus handling for sementic elements, and better browser native interactions.</p>
-				</section>
-				<section>
-					<h2>User Benefits</h2>
-					<p>Can consume markup with the browser or any assistive device, can disable stylesheets or use custom stylesheets to enhance semantic markup.</p>
-				</section>
-				<section>
-					<h2>Developers</h2>
-					<p>Can derive meaning from the markup used as to the intent of a template or component. Ex:</p>
-					<pre><code class="hljs">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Semantic HTML</h1>
+          <p>Meaningful Markup for Accessibility</p>
+        </section>
+        <section>
+          <p>Why is it so important and who is it for?<p>
+          <p class="fragment">Any consumer of HTML<span class="fragment">, our <strong>B.U.D.S.S.</strong></span></p>
+          <ul>
+            <li class="fragment">Browsers</li>
+            <li class="fragment">Users</li>
+            <li class="fragment">Developers</li>
+            <li class="fragment">Screen Readers</li>
+            <li class="fragment">Spiders/Scrapers</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Browser Benefits</h2>
+          <p>Better keyboard access, default focus handling for sementic elements, and better browser native interactions.</p>
+        </section>
+        <section>
+          <h2>User Benefits</h2>
+          <p>Can consume markup with the browser or any assistive device, can disable stylesheets or use custom stylesheets to enhance semantic markup.</p>
+        </section>
+        <section>
+          <h2>Developers</h2>
+          <p>Can derive meaning from the markup used as to the intent of a template or component. Ex:</p>
+          <pre><code class="hljs">
 export default Component.extend({
     tagName: 'button',
     classNameBindings: [
@@ -59,42 +59,105 @@ export default Component.extend({
         'disabled:disabled',
     ]
 });
-						</code></pre>
-					<p>Just from observing the `tagName` you can expect the inherent functionality of a button.</p>
-				</section>
-				<section>
-					<h2>Screen Readers</h2>
-					<p>Can now help users understand the meaning of content being read and unlock additional navigational options based on the tags used</p>
-					<p>More on this per element...</p>
-				</section>
-				<section>
-					<h2>Win Win Win</h2>
-					<p>Top to bottom, semantic markup benefits every consumer of HTML.</p>
-				</section>
-			</div>
-		</div>
+            </code></pre>
+          <p>Just from observing the `tagName` you get an idea of the funtionaly inteneded.</p>
+        </section>
+        <section>
+          <h2>Screen Readers</h2>
+          <p>Can now help users understand the meaning of content being read and unlock additional navigational options based on the tags used</p>
+          <p>More on this per element...</p>
+        </section>
+        <section>
+          <h2>Spiders/Scrapers</h2>
+          <p>Appropriate roles and markup, such as navigation, let robots scrape your content much easier. Google can automatically generate a sitemap just from markup.  Semantic markup can allow scapers to get your content without configuration.</p>
+        </section>
+        <section>
+          <h2>Win Win Win</h2>
+          <p>All consumers of semantic HTML benefit.</p>
+        </section>
+        <section>
+          <h1>HTML Examples</h1>
+          <p>Commonly misused or underused semantic elements<p>
+          <p>Here's the <abbr title="Mozilla Developer Network">MDN</abbr> list of valid <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">HTML Elements</a></p>
+        </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <section>
+          <h2>Lists</h2>
+          <section>
+            <ul>
+              <li>Leonardo</li>
+              <li>Donatello</li>
+              <li>Michaelangelo</li>
+              <li>Raphiel</li>
+            </ul>
+          </section>
+          <section>          
+            <p>With Divs</p>
+            <pre><code>
+<div class="list">
+  <div class="item">Leonardo</div>
+  <div class="item">Donatello</div>
+  <div class="item">Michaelangelo</div>
+  <div class="item">Raphiel</div>
+</div>
+            </code></pre>
+            <p class="fragment"><img src="images/x.svg" class="svg"> Never</p>
+          </section>
+          <section>
+            <p>With UL/LI</p>
+            <pre><code>
+<ul>
+  <li>Leonardo</li>
+  <li>Donatello</li>
+  <li>Michaelangelo</li>
+  <li>Raphiel</li>
+</ul>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Good Deal</p>
+          </section>
+          <section>
+            <p>Ordered With OL/LI</p>
+            <pre><code>
+<ol>
+  <li>Leonardo</li>
+  <li>Donatello</li>
+  <li>Michaelangelo</li>
+  <li>Raphiel</li>
+</ol>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Even Better</p>
+          </section>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+          <section>
+            <h3>Semantic UL's in a screen reader</h3>
+            <p>Insert video of screen reader navigating the markup, of demo app.<p>
+            <!-- <p>Screen readers can tell you the total items and where you are in the list. This allows the user to skip if they've been read the list before and to prep for how large of a list they are about to listen to.</p> -->
+          </section>
+        </section>
+      </div>
+    </div>
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
 </html>
