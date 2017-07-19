@@ -7,3 +7,7 @@
     bottom: -0.25em;
     margin-right: 0.25em;
 }
+
+.reveal section button.demo-button {
+    font-size: 1em;
+}

@@ -92,8 +92,8 @@ export default Component.extend({
             </ul>
           </section>
           <section>          
-            <p>With Divs</p>
-            <pre><code>
+            <p>The Wrong Way</p>
+            <pre><code class="html">
 <div class="list">
   <div class="item">Leonardo</div>
   <div class="item">Donatello</div>
@@ -105,7 +105,7 @@ export default Component.extend({
           </section>
           <section>
             <p>With UL/LI</p>
-            <pre><code>
+            <pre><code class="html">
 <ul>
   <li>Leonardo</li>
   <li>Donatello</li>
@@ -117,7 +117,7 @@ export default Component.extend({
           </section>
           <section>
             <p>Ordered With OL/LI</p>
-            <pre><code>
+            <pre><code class="html">
 <ol>
   <li>Leonardo</li>
   <li>Donatello</li>
@@ -129,9 +129,75 @@ export default Component.extend({
           </section>
 
           <section>
-            <h3>Semantic UL's in a screen reader</h3>
-            <p>Insert video of screen reader navigating the markup, of demo app.<p>
+            <ul>
+              <li>Screen readers pick up on lists of items and call out length</li>
+              <li>Length alows the user skip additional items if it's not relevant</li>
+              <li>Context as to what is being read helps understand, otherwise it becomes a run on sentence of random words with no context.</li>
+            </ul>
             <!-- <p>Screen readers can tell you the total items and where you are in the list. This allows the user to skip if they've been read the list before and to prep for how large of a list they are about to listen to.</p> -->
+          </section>
+        </section>
+        <section>
+          <h2>Buttons</h2>
+          <section>
+            <button class="demo-button">I'm a button</button>
+          </section>
+          <section>          
+            <p>The Wrong Way</p>
+            <pre><code class="html">
+<div class="btn btn-primary">A sad button</div>
+<span class="btn btn-primary">Even sadder</span>
+<em class="btn btn-primary">Sadder still</em>
+<strong class="btn btn-primary">Why do you hate me</strong>
+            </code></pre>
+            <p class="fragment"><img src="images/x.svg" class="svg"> Never</p>
+          </section>
+          <section>
+            <p>Button Tag</p>
+            <pre><code class="html">
+<button class="btn btn-primary">I'm a button</button>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Good Deal</p>
+          </section>
+
+          <section>
+            <ul>
+              <li>Recieve tab focus by default without having to set tabindex</li>
+              <li>Screen readers recognize it as a clickable element by default.</li>
+              <li>Should be used when state is being updated on the same page, or as a form submit button</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Links</h2>
+          <section>
+            <a href="#" class="demo-button">I'm a link</a>
+          </section>
+          <section>          
+            <p>The Wrong Way</p>
+            <pre><code class="hbs">
+<a class="demo-button">Bad Link</a>
+<span class="btn btn-primary">Sad</span>
+            </code></pre>
+            <p class="fragment"><img src="images/x.svg" class="svg"> Never</p>
+          </section>
+          <section>
+            <p>Link Tag with HREF</p>
+            <pre><code class="html">
+<a href="/some/path.html">I'm a link</a>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Good Deal</p>
+          </section>
+
+          <section>
+            <ul>
+              <li>HREF is needed even with JavaScript listeners</li>
+              <li>Recieve tab focus (with a valid HREF)</li>
+              <li>HREF is required.</li>
+              <li>Screen readers recognize it as a clickable element by default.</li>
+              <li>Should be used when the URL is being changed</li>
+              <li>Did I mention that you need an HREF?</li>
+            </ul>
           </section>
         </section>
       </div>
