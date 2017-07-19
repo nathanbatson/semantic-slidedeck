@@ -13,11 +13,11 @@ body.smaller{
 	clear:both;
 }
 
-h1{
+h1, .h1{
 	font-size:34px;
 }
 
-h2 {
+h2, .h2 {
 	font-size:28px;
 }
 
@@ -29,7 +29,7 @@ h4{
 	font-size:16px;
 }
 
-h1, h2, h3{
+h1, h2, h3, .h2, .h1 {
 	margin-bottom:15px;
 	font-family: 'Chivo', sans-serif;
 	font-weight: 900;
@@ -129,15 +129,31 @@ body.smaller img.scale{
 	left:0;
 }
 
-#logo h3{
+#logo .h3{
 	font-family:'Chivo', sans-serif;
 	font-size:46px;
 	position:absolute;
-	bottom:25px;
+	bottom:45px;
 	left:100px;
 }
 
-#logo h4{
+#logo h2{
+	font-family:'Chivo', sans-serif;
+	font-size:46px;
+	position:absolute;
+	bottom: 0;
+	left:100px;
+	line-height: 30px;
+}
+
+#logo small{
+	font-family: 'Bitter', serif;
+	font-style:italic;
+	letter-spacing:-.5px;
+	font-size:22px;
+}
+
+#logo .h4{
 	font-family: 'Bitter', serif;
 	font-style:italic;
 	letter-spacing:-.5px;
@@ -156,11 +172,13 @@ body.smaller img.scale{
 	color:#432918;
 }
 
-#navigation li{
+#navigation li, 
+#navigation .navitem{
 	float:left;
 }
 
-#navigation li a{
+#navigation li a,
+#navigation .navitem a{
 	float:left;
 	padding-left:10px;
 	padding-right:10px;
@@ -175,7 +193,10 @@ body.smaller img.scale{
 	transition:background-color .2s ease-in;
 }
 
-#navigation li a:hover, #navigation li a.selected{
+#navigation li a:hover, 
+#navigation li a.selected,
+#navigation .navitem a:hover, 
+#navigation .navitem a.selected{
 	background:#fff;
 }
 
@@ -471,6 +492,13 @@ h1.left{
 	margin-bottom:20px;
 }
 
+#about .left .bullet{
+	font-family: 'Bitter', serif;
+	font-style:italic;
+	letter-spacing:-.5px;
+	font-size:18px;
+}
+
 #about h2{
 	font-size:24px;
 }
@@ -579,4 +607,27 @@ h1.left{
 
 #not-found{
 	margin-top:50px;
+}
+
+.bullet {
+	padding-left: 25px;
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+.bullet::before {
+	content: "- ";
+}
+
+.screen-reader-only {
+    border: 0;
+    clip: rect( 1px, 1px, 1px, 1px );
+    clip-path: inset( 50% );
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal;
 }
