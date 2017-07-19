@@ -8,6 +8,21 @@
     margin-right: 0.25em;
 }
 
-.reveal section button.demo-button {
+.reveal section form {
+    text-align: left;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.reveal section button.demo-button,
+.reveal section .demo-size {
     font-size: 1em;
+}
+
+.reveal section .demo-size {
+    height: 1em;
+}
+
+.reveal section div.form-fieldset {
+    margin-bottom: 1em;
 }

@@ -175,7 +175,7 @@ export default Component.extend({
           </section>
           <section>          
             <p>The Wrong Way</p>
-            <pre><code class="hbs">
+            <pre><code class="html">
 <a class="demo-button">Bad Link</a>
 <span class="btn btn-primary">Sad</span>
             </code></pre>
@@ -188,16 +188,162 @@ export default Component.extend({
             </code></pre>
             <p class="fragment"><img src="images/check.svg" class="svg"> Good Deal</p>
           </section>
+          <section>
+            <ul>
+              <li><strong>HREF</strong> is needed even with JavaScript listeners</li>
+              <li>Recieve tab focus (with a valid HREF)</li>
+              <li><strong>HREF</strong> is required.</li>
+              <li>Screen readers recognize it as a clickable element by default</li>
+              <li>Used when the URL is being changed</li>
+              <li>Did I mention that you need an <strong>HREF</strong>?</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Headings</h2>
+          <section>
+            <h1>I'm a h1</h1>
+            <h2>I'm a h2</h2>
+            <h3>I'm a h3</h3>
+            <h4>I'm a h4</h4>
+            <h5>I'm a h5</h5>
+            <h6>I'm a h6</h6>
+          </section>
+          <section>          
+            <p>The Wrong Way</p>
+            <pre><code class="html">
+<div class="h1">I'm a faux h1</div>
+<span class="h2">not a h2</span>
+<div><strong class="font-size-big">H3 No</strong></div>
+            </code></pre>
+            <p class="fragment"><img src="images/x.svg" class="svg"> Mostly No</p>
+          </section>
+          <section>
+            <p>H1-H6</p>
+            <pre><code class="html">
+<h1>I'm a h1</h1>
+<h2>I'm a h2</h2>
+<h3>I'm a h3</h3>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Good Deal... Maybe</p>
+          </section>
+          <section>
+            <ul>
+              <li>Headers call out the start of sections of content, hence the full name "Section Heading"</li>
+              <li>Screen readers can use headings to skip through large sections of content.</li>
+              <li>H1's are used as the title of a page, it's not reccomended to have multiple H1's. Spider/Scraper benefit from this as well.</li>
+              <li>Should be part of base typography, shouldn't need much styling.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Don't Overuse</h3>
+            <p>You shouldn't use headings for purely decorative purposes, instead use more unique callout styles. Which is why I said <em><strong>maybe</strong></em> before.</p>
+            <pre><code class="html">
+<p class="paragraph-title">Paragraph title</p>
+            </code></pre>
+            <p>If you're adding tons of styles to a heading so it fits in your widget, likely it shouldn't be a heading.<p>
+          </section>
+        </section>
+        <section>
+          <h2>Forms</h2>
+          <section>
+            <h3>A simple form</h3>
+            <form>
+              <div class="form-fieldset">
+                <label for="dave">Dave's Label</label><br/>
+                <input class="demo-size" id="dave" type="text" name="davetext" placeholder="dave's placeholder">
+              </div>
+              <div class="form-buttons">
+                <a href="/path/to/cancel">Cancel</a>
+                <button class="demo-button" type="submit">Save Dave</button>
+              </div>
+            </form>
+          </section>
+          <section>          
+            <p>The Wrong Way</p>
+            <pre><code class="html">
+<input type="text" placeholder="dave's placeholder">
+<a class="btn btn-primary">Save Dave</a>
+            </code></pre>
+            <p class="fragment"><img src="images/x.svg" class="svg"> Never</p>
+          </section>
+          <section>
+            <p>A Semantic Form</p>
+            <pre><code class="html">
+<form>
+  <h1>Turtles Form</h1>
+  <div class="form-group">
+    <label for="turtle">Turtle Name</label><br/>
+    <input id="turtle" type="text" name="turtle" placeholder="a turtle name">
+  </div>
+  <div class="form-buttons">
+    <a href="/path/to/cancel">Cancel</a>
+    <button type="submit">Save Dave</button>
+  </div>
+</form>
+            </code></pre>
+            <p class="fragment"><img src="images/check.svg" class="svg"> Nice</p>
+          </section>
 
           <section>
             <ul>
-              <li>HREF is needed even with JavaScript listeners</li>
-              <li>Recieve tab focus (with a valid HREF)</li>
-              <li>HREF is required.</li>
-              <li>Screen readers recognize it as a clickable element by default.</li>
-              <li>Should be used when the URL is being changed</li>
-              <li>Did I mention that you need an HREF?</li>
+              <li>Form tags provide Screen readers the context that a user has entered a form</li>
+              <li>Encountering form elements outside of a form randomly can be confusing.</li>
+              <li>All inputs must have associated labels to describe what should be input</li>
+              <li>Just placeholders aren't good enough</li>
+              <li>Buttons to submit and links to cancel</li>
             </ul>
+          </section>
+          <section>
+            <h4>Way too much on forms</h4>
+            <p>Further reading about all the subtleties of a semantic for on <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form">MDN's How to structure an HTML form</a>.
+          </section>
+        </section>
+        <section>
+          <h2>What about my widget?</h2>
+          <p>When semantic markup isn't enough.</p>
+          <div class="fragment">
+            <h1><abbr title="Accessible Rich Internet Applications">ARIA</abbr></h1>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">MDN ARIA</a></p>
+          </div>
+        </section>
+        <section>
+          <p><strong>ARIA</strong> provides a way to add the missing semantics needed by assistive technologies such as screen readers. <strong>ARIA</strong> enables developers to describe their widgets in more detail by adding special attributes to the markup.</p>
+        </section>
+        <section>
+          <h2>ARIA Roles</h2>
+          <section>
+            <p>Roles describe widgets that aren't otherwise available in HTML 4, such as sliders, menu bars, tabs, and dialogs.</p>
+            <p><a href="https://www.w3.org/TR/wai-aria/roles">W3C List of Roles</a></p>
+          </section>
+          <section>
+            <h4>An Accordion</h4>
+            <pre><code>
+<h3>
+   <button aria-expanded="false" aria-controls="collapsible-0">What is this all about?</button>
+</h3>
+<div id="collapsible-0" aria-hidden="true" style="display: none;">
+   <p>Lorem ipsum with a <a href="http://example.com">link thrown in</a> etc.</p>
+   <p>etc.</p>
+</div>
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <h2>ARIA States</h2>
+          <section>
+            <p>States describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden.</p>
+          </section>
+          <section>
+            <p>An Accordion</p>
+            <pre><code>
+<h3>
+   <button aria-expanded="false" aria-controls="collapsible-0">What is this all about?</button>
+</h3>
+<div id="collapsible-0" aria-hidden="true" style="display: none;">
+   <p>Lorem ipsum etc...</p>
+</div>
+            </code></pre>
           </section>
         </section>
       </div>
