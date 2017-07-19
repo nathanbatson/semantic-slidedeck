@@ -304,7 +304,7 @@ export default Component.extend({
           <p>When semantic markup isn't enough.</p>
           <div class="fragment">
             <h1><abbr title="Accessible Rich Internet Applications">ARIA</abbr></h1>
-            <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">MDN ARIA</a></p>
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA">MDN ARIA Overview</a>, <a href="https://www.w3.org/TR/wai-aria-practices/">W3C ARIA Best Practices</a></p>
           </div>
         </section>
         <section>
@@ -317,35 +317,179 @@ export default Component.extend({
             <p><a href="https://www.w3.org/TR/wai-aria/roles">W3C List of Roles</a></p>
           </section>
           <section>
-            <h4>An Accordion</h4>
-            <pre><code>
-<h3>
-   <button aria-expanded="false" aria-controls="collapsible-0">What is this all about?</button>
-</h3>
-<div id="collapsible-0" aria-hidden="true" style="display: none;">
-   <p>Lorem ipsum with a <a href="http://example.com">link thrown in</a> etc.</p>
-   <p>etc.</p>
+            <p>Widget Roles <a href="https://www.w3.org/TR/wai-aria/roles#widget_roles">W3C</a></p>
+            <pre><code class="html" style="font-size: 0.7em"><div class="my-custom-clickable-widget" role="button">
+  <p>a custom widget, that's a button<p>
+  <p>but can't be a button or link</p>
+</div></code></pre>
+            <br/>
+            <p>Occationaly you may need to semantic roles to markup that can't because of arbitrarly limitatins.</p>
+          </section>
+          <section>
+            <p>Landmark Roles <a href="https://www.w3.org/TR/wai-aria/roles#landmark_roles">W3C</a></p>
+            <pre><code class="html" style="font-size: 0.7em">
+<div role="navigation">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">Home</a></li>
+  </ul>
+</div>
+<div role="main">
+  <p>The main content</p>
+</div>
+<div role="footer">
+  <p>&copy; My Company 2017</p>
 </div>
             </code></pre>
+          </section>
+          <section>
+            <p>Landmark Roles are used by screen readers navigate between landmarks quickly. 
+            <p>For example, ff a site has 25 navigationl links, a user could opt to jump to the main landmark role to not be forced to listen to all 25 options each time the page loads.</p>
           </section>
         </section>
         <section>
-          <h2>ARIA States</h2>
+          <h2>ARIA States and Properties</h2>
           <section>
-            <p>States describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden.</p>
+            <p>States and Properties describe the current interaction state of an element, informing the assistive technology if it is busy, disabled, selected, or hidden.</p>
+            <p>Describes all aria-xxxxx attributes</p>
+            <p><a href="https://www.w3.org/TR/wai-aria/states_and_properties">W3C ARIA states and properties</a></p>
           </section>
           <section>
-            <p>An Accordion</p>
-            <pre><code>
-<h3>
-   <button aria-expanded="false" aria-controls="collapsible-0">What is this all about?</button>
+            <p>An Accordion without ARIA</p>
+            <pre><code class="html"><h3>
+   A teaser 
+   <button>+</button>
 </h3>
-<div id="collapsible-0" aria-hidden="true" style="display: none;">
+<div style="display: none;">
    <p>Lorem ipsum etc...</p>
-</div>
-            </code></pre>
+</div></code></pre>
+          </section>
+          <section>
+            <p>An ARIA Accordion (collapsed)</p>
+            <pre><code class="html" style="font-size: 0.7em"><h3>
+   A teaser 
+   <button aria-expanded="false" aria-controls="accordion" aria-label="expand">
+    +
+   </button>
+</h3>
+<div id="accordion" aria-hidden="true" style="display: none;">
+   <p>Lorem ipsum etc...</p>
+</div></code></pre>
+
+          </section>
+          <section>
+            <p>An ARIA Accordion (expanded)</p>
+            <pre><code class="html" style="font-size: 0.7em"><h3>
+   A teaser 
+   <button aria-expanded="true" aria-controls="accordion" aria-label="collapse">
+    -
+   </button>
+</h3>
+<div id="accordion" aria-hidden="false" style="">
+   <p>Lorem ipsum etc...</p>
+</div></code></pre>
+
+          </section>
+          <section>
+            <p>When the button is clicked, it's state changes based on if the accordion is expanded or collaped.  When expaned <strong>aria-expanded</strong> and <strong>aria-label</strong> are changed to reflect the new state.</p>
+            <p>When the content is expanded, in addition to the CSS display change, the div's <strong>aria-hidden="false"</strong> state is changed.</p>
           </section>
         </section>
+        <section>
+          <h1>CSS Kind of Matters</h1>
+        </section>
+        <section>
+          <h2>Hidden Things</h2>
+          <section>
+          <p>Anything that's <strong>display: none;</strong> is respected by screen readers.  So if it's hidden by CSS, it's hidden for reals.</p>
+          </section>
+          <section>
+            <p>To hide content from browsers but let screen readers read content.</p>
+          <pre><code>
+.screen-reader-only {
+    border: 0;
+    clip: rect( 1px, 1px, 1px, 1px );
+    clip-path: inset( 50% );
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal;
+}
+          </code></pre>
+          </section>
+        </section>
+        <section>
+          <h2>Bad Flow</h2>
+          <section>
+          <p>Text is read in the order it's presented in the HTML source.  Top to bottom, left to right.</p>
+          <p>Anything CSS that takes divs out of flow, does not change the order in which it's read</p>
+          </section>
+          <section>
+            <p>Fixed Positioning</p>
+            <p data-height="265" data-theme-id="dark" data-slug-hash="YQoqmw" data-default-tab="css,result" data-user="nathanbatson" data-embed-version="2" data-pen-title="Fixed Positioning" class="codepen">See the Pen <a href="https://codepen.io/nathanbatson/pen/YQoqmw/">Fixed Positioning</a> by Nathan Batson (<a href="https://codepen.io/nathanbatson">@nathanbatson</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+            <p>Last is still read last</p>
+          </section>
+          <section>
+            <p>Funky Floats</p>
+<p data-height="265" data-theme-id="dark" data-slug-hash="LLKNvP" data-default-tab="css,result" data-user="nathanbatson" data-embed-version="2" data-pen-title="Funky Floats" class="codepen">See the Pen <a href="https://codepen.io/nathanbatson/pen/LLKNvP/">Funky Floats</a> by Nathan Batson (<a href="https://codepen.io/nathanbatson">@nathanbatson</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+          <p>One is still read first</p>
+          </section>
+        </section>
+        <section>
+          <h2>CSS Generated Content</h2>
+          <p>Any content added to the page from CSS is generally inaccessible. Browser and screen reader support is inconsistent.</p>
+          <div class="fragment">
+          <pre><code class="css">.dont-do-this:after{
+  content: "please no";
+  display: block;
+}</code></pre>
+            <p><img src="images/x.svg" class="svg"> Wrong</p>
+          </div>
+        </section>
+        <section>
+          <h2>Help Tying it Together</h2>
+          <p>For help with doing some testing of static HTML markup <a href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US">aXe Chrome extension</a>.</p>
+          <p>But automated accessibility testing doesn't always tell the full story.</p>
+        </section>
+        <section>
+          <h2>Nike aXed</h2>
+          <p><img src="images/axe-in-action.png"></p>
+        </section>
+        <section>
+          <h1>Nathan Does Demos</h1>
+        </section>
+        <section>
+          <h1>So What About Ember?</h1>
+          <h2 class="fragment">More on that nexst week.</h2>
+        </section>
+        <section>
+          <h1>Nathan Takes Questions</h1>
+        </section>
+        <section>
+          <h2>Documentation</h2>
+
+          <div class="text-left">
+            <p>Semantic HTML</p>
+            <ul>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">MDN HTML Element List</a>
+              </li>
+            </ul>
+            <p>Accessibility Resources</p>
+            <ul>
+              <li><a href="https://www.w3.org/TR/wai-aria-practices/">W3C ARIA Best Practices</a></li>
+              <li><a href="https://www.w3.org/TR/wai-aria/states_and_properties">W3C ARIA States and properties</a></li>
+              <li><a href="https://www.w3.org/TR/wai-aria/roles">W3C ARIA roles</a></li>
+              <li><a href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd?hl=en-US">aXe Chrome Extension</a></li>
+            </ul>
+          </div>
+        </section>
+
       </div>
     </div>
 

@@ -26,3 +26,7 @@
 .reveal section div.form-fieldset {
     margin-bottom: 1em;
 }
+
+.reveal section div.text-left {
+    text-align: left;
+}
